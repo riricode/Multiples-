@@ -1,0 +1,59 @@
+import hsa.Console;
+
+public class Multiples
+{
+    static Console c;
+
+    public static void main (String[] args)
+    {
+        c = new Console ();
+
+        //Variable Declaration Section
+        int UserInputInteger;
+        int multiples = 0 ;
+
+        
+        c.print ("Enter an integer: ");
+        UserInputInteger = c.readInt ();
+
+        //Test the user input integer and display appropriate continuation
+        if (UserInputInteger == 0) //Invalid check for no valued UserInputInteger
+        {
+            c.println ();
+            c.println ("There's been an error. Integer needs to have value.\n Please press any key to return to the menu.");
+            c.getChar (); // any key returns to the menu.
+            c.clear (); // fresh screen for method
+        }
+        else if (UserInputInteger < 0) //Invalid check for negative UserInputInteger
+            //less than 0 since previous ifs false
+            {
+                c.println ();
+                c.println ("There's been an error. Integer needs to be positive.\n Please press any key to return to the menu.");
+                c.getChar (); // any key returns to the menu.
+                c.clear (); // fresh screen for method
+            }
+        else // more than 0 since previous ifs false
+        {
+            //Display multiples message of UserInputInteger entered
+            c.println ();
+            multiples = UserInputInteger;
+            c.print ("Multiples of " + UserInputInteger + " are ");
+        }
+
+        //Processing and Output section
+        do 
+        {
+            multiples = multiples + UserInputInteger; //Processing section, Calculate the multiples of inputted UserInputInteger
+            c.print (multiples + " "); //Output section, Display multiples of inputted UserInputInteger
+        }
+        while (multiples < 100 );
+        
+        //Output section
+        //Display goodbye message.
+        c.println ("\n");
+        c.println ("Here are the multiples of your integer! Hope to see you again!");
+        c.println ("Press any key to return to the menu.");
+        c.getChar (); // any key returns to the menu.
+        c.clear (); // fresh screen for method
+    }
+    }
